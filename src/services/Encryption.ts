@@ -17,6 +17,9 @@ export class SuperSimpleEncryption {
   private encryptionKey: string;
 
   constructor(encryptionKey: string) {
+    // Make sure the encryption key is provided
+    if (!encryptionKey) throw new Error('An encryption key must be provided');
+
     // Make sure the encryption key is 32 bytes (256 bits)
     if (encryptionKey.length !== 32)
       throw new Error('The encryption key must be 32 bytes long');
